@@ -1,0 +1,54 @@
+<section class="skills section">
+  <div class="container">
+
+    <div appScrollAnimation class="scroll-animate">
+      <div class="section-divider"></div>
+      <h2 class="section-title">My <span>Skills</span></h2>
+      <p class="section-subtitle">Technologies I work with every day</p>
+    </div>
+
+    <!-- Skill Groups Grid -->
+    <div class="groups-grid">
+      @for (group of groups; track group.category; let i = $index) {
+        <div appScrollAnimation class="scroll-animate card skill-group"
+             [style.transition-delay]="(i * 0.15) + 's'">
+
+          <div class="group-header">
+            <span class="group-icon">{{ group.icon }}</span>
+            <h3 class="group-title">{{ group.category }}</h3>
+          </div>
+
+          <div class="skills-list">
+            @for (skill of group.skills; track skill.name) {
+              <div class="skill-item">
+                <div class="skill-row">
+                  <span class="skill-icon">{{ skill.icon }}</span>
+                  <span class="skill-name">{{ skill.name }}</span>
+                  <span class="skill-pct">{{ skill.level }}%</span>
+                </div>
+                <div class="bar-track">
+                  <div class="bar-fill"
+                       [style.width.%]="skill.level"
+                       [style.background]="'linear-gradient(90deg, ' + skill.color + ', ' + skill.color + 'aa)'">
+                  </div>
+                </div>
+              </div>
+            }
+          </div>
+
+        </div>
+      }
+    </div>
+
+    <!-- Tech Stack Tags -->
+    <div appScrollAnimation class="scroll-animate tech-stack">
+      <h4 class="stack-label">Tech Stack</h4>
+      <div class="stack-tags">
+        @for (tech of techStack; track tech) {
+          <span class="stack-tag">{{ tech }}</span>
+        }
+      </div>
+    </div>
+
+  </div>
+</section>

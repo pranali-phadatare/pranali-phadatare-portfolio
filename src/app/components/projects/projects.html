@@ -1,0 +1,70 @@
+<section class="projects section">
+  <div class="container">
+
+    <div appScrollAnimation class="scroll-animate">
+      <div class="section-divider"></div>
+      <h2 class="section-title">My <span>Projects</span></h2>
+      <p class="section-subtitle">Things I've built with passion</p>
+    </div>
+
+    <!-- Filter Tabs -->
+    <div appScrollAnimation class="scroll-animate filter-row">
+      @for (f of filters; track f) {
+        <button class="filter-btn" [class.active]="activeFilter() === f" (click)="setFilter(f)">
+          {{ f | titlecase }}
+        </button>
+      }
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      @for (project of filteredProjects(); track project.id; let i = $index) {
+        <div appScrollAnimation class="scroll-animate project-card card"
+             [class.featured]="project.featured"
+             [style.transition-delay]="(i % 3 * 0.1) + 's'">
+
+          @if (project.featured) {
+            <div class="featured-tag">⭐ Featured</div>
+          }
+
+          <div class="card-header">
+            <span class="folder-icon">📁</span>
+            <div class="card-links">
+              @if (project.githubUrl) {
+                <a [href]="project.githubUrl" target="_blank" rel="noopener noreferrer"
+                   class="icon-link" title="GitHub Repository">🐙</a>
+              }
+              @if (project.demoUrl && project.demoUrl !== '#') {
+                <a [href]="project.demoUrl" target="_blank" rel="noopener noreferrer"
+                   class="icon-link" title="Live Demo">🔗</a>
+              }
+            </div>
+          </div>
+
+          <h3 class="project-title">{{ project.title }}</h3>
+          <p class="project-desc">{{ project.description }}</p>
+
+          <div class="tech-row">
+            @for (tech of project.techStack; track tech) {
+              <span class="tech-badge">{{ tech }}</span>
+            }
+          </div>
+
+        </div>
+      }
+    </div>
+
+    @if (filteredProjects().length === 0) {
+      <div class="empty">
+        <span>🔍</span>
+        <p>No projects found for this filter.</p>
+      </div>
+    }
+
+    <div appScrollAnimation class="scroll-animate view-more">
+      <a href="https://github.com/pranali-phadatare" target="_blank" rel="noopener noreferrer"
+         class="btn btn-outline">🐙 View All on GitHub</a>
+    </div>
+
+  </div>
+</section>

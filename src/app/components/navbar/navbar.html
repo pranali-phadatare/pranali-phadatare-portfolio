@@ -1,0 +1,63 @@
+<nav class="navbar" [class.scrolled]="isScrolled()">
+  <div class="container nav-container">
+
+    <!-- Logo -->
+    <a routerLink="/home" class="logo" (click)="closeMenu()">
+      <img src="logo.png" alt="Logo" class="logo-img">
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <ul class="nav-links">
+      @for (item of navItems; track item.route) {
+        <li>
+          <a [routerLink]="item.route" routerLinkActive="active" class="nav-link">
+            {{ item.label }}
+          </a>
+        </li>
+      }
+    </ul>
+
+    <!-- Right-side Actions -->
+    <div class="nav-actions">
+      <!-- Dark / Light Toggle -->
+      <button
+        class="theme-toggle"
+        (click)="themeService.toggleTheme()"
+        [title]="themeService.isDark() ? 'Switch to Light Mode' : 'Switch to Dark Mode'"
+        aria-label="Toggle theme"
+      >
+        @if (themeService.isDark()) { ☀️ } @else { 🌙 }
+      </button>
+
+      <!-- Download Resume -->
+      <button class="btn-resume" (click)="downloadResume()">
+        <span>📄</span>
+        <span class="resume-label">Resume</span>
+      </button>
+
+      <!-- Mobile Hamburger -->
+      <button class="hamburger" [class.open]="isMenuOpen()" (click)="toggleMenu()" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Dropdown Menu -->
+  <div class="mobile-menu" [class.open]="isMenuOpen()">
+    <ul class="mobile-nav-links">
+      @for (item of navItems; track item.route) {
+        <li>
+          <a [routerLink]="item.route" routerLinkActive="active" class="mobile-nav-link" (click)="closeMenu()">
+            <span>{{ item.icon }}</span>
+            {{ item.label }}
+          </a>
+        </li>
+      }
+    </ul>
+    <button class="btn-resume mobile-resume-btn" (click)="downloadResume()">
+      📄 Download Resume
+    </button>
+  </div>
+</nav>

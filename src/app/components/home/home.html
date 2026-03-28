@@ -1,0 +1,82 @@
+<section class="hero">
+  <!-- Decorative animated background blobs -->
+  <div class="hero-bg" aria-hidden="true">
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+  </div>
+
+  <div class="container hero-container">
+    <!-- Left: Text Content -->
+    <div class="hero-content">
+      <div class="hero-greeting animate-up">
+        <span class="wave">👋</span>
+        <span class="greeting-text">Hello, I'm</span>
+      </div>
+
+      <h1 class="hero-name animate-up delay-1">
+        Pranali
+        <span class="name-gradient"> Phadatare</span>
+      </h1>
+
+      <!-- Typewriter Role -->
+      <div class="hero-role animate-up delay-2">
+        <span class="role-bracket">&lt;</span>
+        <span class="role-text">{{ displayRole() }}</span>
+        <span class="cursor" [class.visible]="showCursor()">|</span>
+        <span class="role-bracket">/&gt;</span>
+      </div>
+
+      <p class="hero-bio animate-up delay-3">
+        Passionate about crafting beautiful, performant web experiences.
+        Specializing in <strong>Angular</strong>, <strong>TypeScript</strong>,
+        and modern frontend architecture.
+      </p>
+
+      <!-- CTAs -->
+      <div class="hero-cta animate-up delay-4">
+        <a routerLink="/projects" class="btn btn-primary">🚀 View My Work</a>
+        <button class="btn btn-outline" (click)="downloadResume()">📄 Download Resume</button>
+      </div>
+
+      <!-- Social Links -->
+      <div class="hero-social animate-up delay-5">
+        @for (link of socialLinks; track link.label) {
+          <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+             class="social-link" [attr.aria-label]="link.label">
+            <span class="social-icon">{{ link.icon }}</span>
+            <span>{{ link.label }}</span>
+          </a>
+        }
+      </div>
+    </div>
+
+    <!-- Right: Profile Visual -->
+    <div class="hero-visual animate-right">
+      <div class="profile-wrap">
+        <div class="profile-circle">
+          <span class="initials">PP</span>
+        </div>
+        <div class="ring ring-1"></div>
+        <div class="ring ring-2"></div>
+      </div>
+      <!-- Floating tech badges -->
+      <div class="badge b-angular">⚡ Angular</div>
+      <div class="badge b-ts">🔷 TypeScript</div>
+      <div class="badge b-rxjs">🔄 RxJS</div>
+      <div class="badge b-css">🎨 CSS3</div>
+    </div>
+  </div>
+
+  <!-- Stats Bar -->
+  <div class="stats-bar animate-up delay-5">
+    <div class="container stats-inner">
+      @for (stat of stats; track stat.label) {
+        <div class="stat">
+          <span class="stat-value">{{ stat.value }}</span>
+          <span class="stat-label">{{ stat.label }}</span>
+        </div>
+      }
+    </div>
+  </div>
+</section>

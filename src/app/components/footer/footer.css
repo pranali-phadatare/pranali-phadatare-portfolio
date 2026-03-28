@@ -1,0 +1,126 @@
+.footer {
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  padding: 3.5rem 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1.5fr;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+/* Brand */
+.footer-logo {
+  font-family: 'Fira Code', monospace;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+}
+.lb { color: var(--primary-light); }
+.lt { margin: 0 2px; }
+
+.tagline {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+  max-width: 280px;
+}
+
+.social-links { display: flex; gap: 0.6rem; }
+
+.social-btn {
+  width: 36px; height: 36px;
+  border-radius: 9px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.social-btn:hover {
+  border-color: var(--primary);
+  background: rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Quick Links */
+.footer-heading {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.footer-link {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  transition: color 0.3s;
+}
+
+.footer-link:hover { color: var(--primary-light); }
+
+/* CTA */
+.cta-text {
+  font-size: 0.87rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+/* Bottom Bar */
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding: 1.2rem 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.copyright { font-size: 0.83rem; color: var(--text-muted); }
+
+.angular-tag {
+  background: rgba(221, 0, 49, 0.12);
+  color: #dd0031;
+  padding: 0.12rem 0.45rem;
+  border-radius: 4px;
+  font-weight: 600;
+  font-size: 0.78rem;
+}
+
+.back-top {
+  padding: 0.35rem 0.9rem;
+  border-radius: 7px;
+  border: 1px solid var(--border-color);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  font-family: 'Inter', sans-serif;
+  transition: all 0.3s ease;
+}
+
+.back-top:hover {
+  border-color: var(--primary);
+  color: var(--primary-light);
+  background: rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+}

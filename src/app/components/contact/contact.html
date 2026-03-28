@@ -1,0 +1,114 @@
+<section class="contact section">
+  <div class="container">
+
+    <div appScrollAnimation class="scroll-animate">
+      <div class="section-divider"></div>
+      <h2 class="section-title">Get In <span>Touch</span></h2>
+      <p class="section-subtitle">Have a project in mind? Let's talk!</p>
+    </div>
+
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div appScrollAnimation class="scroll-animate-left contact-info">
+        <h3 class="info-title">Let's Work Together 🚀</h3>
+        <p class="info-text">
+          I'm currently open to freelance projects and full-time opportunities.
+          Whether you have a project idea, a job offer, or just want to say hi —
+          my inbox is always open!
+        </p>
+
+        <div class="info-items">
+          @for (info of contactInfo; track info.label) {
+            <div class="info-item">
+              <div class="info-icon">{{ info.icon }}</div>
+              <div class="info-detail">
+                <span class="info-label">{{ info.label }}</span>
+                @if (info.href) {
+                  <a [href]="info.href" target="_blank" rel="noopener noreferrer" class="info-value link">
+                    {{ info.value }}
+                  </a>
+                } @else {
+                  <span class="info-value">{{ info.value }}</span>
+                }
+              </div>
+            </div>
+          }
+        </div>
+
+        <div class="avail-badge">
+          <span class="avail-dot"></span>
+          Currently available for new opportunities
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div appScrollAnimation class="scroll-animate-right">
+        <form [formGroup]="contactForm" (ngSubmit)="onSubmit()" novalidate class="contact-form">
+
+          <!-- Name -->
+          <div class="field" [class.error]="isInvalid('name')">
+            <label for="name">Full Name *</label>
+            <input id="name" type="text" formControlName="name"
+                   placeholder="John Doe" autocomplete="name" />
+            @if (isInvalid('name')) {
+              <span class="err-msg">{{ getError('name') }}</span>
+            }
+          </div>
+
+          <!-- Email -->
+          <div class="field" [class.error]="isInvalid('email')">
+            <label for="email">Email Address *</label>
+            <input id="email" type="email" formControlName="email"
+                   placeholder="john@example.com" autocomplete="email" />
+            @if (isInvalid('email')) {
+              <span class="err-msg">{{ getError('email') }}</span>
+            }
+          </div>
+
+          <!-- Subject -->
+          <div class="field" [class.error]="isInvalid('subject')">
+            <label for="subject">Subject *</label>
+            <input id="subject" type="text" formControlName="subject"
+                   placeholder="Project Inquiry / Job Opportunity" />
+            @if (isInvalid('subject')) {
+              <span class="err-msg">{{ getError('subject') }}</span>
+            }
+          </div>
+
+          <!-- Message -->
+          <div class="field" [class.error]="isInvalid('message')">
+            <label for="message">
+              Message *
+              <span class="char-count">{{ messageLength }}/1000</span>
+            </label>
+            <textarea id="message" formControlName="message" rows="5"
+                      placeholder="Tell me about your project, timeline, and goals..."></textarea>
+            @if (isInvalid('message')) {
+              <span class="err-msg">{{ getError('message') }}</span>
+            }
+          </div>
+
+          <!-- Submit -->
+          <button type="submit" class="btn btn-primary submit-btn" [disabled]="isSubmitting()">
+            @if (isSubmitting()) {
+              <span class="spinner"></span> Sending...
+            } @else {
+              📬 Send Message
+            }
+          </button>
+
+          <!-- Status -->
+          @if (submitStatus() === 'success') {
+            <div class="status-msg success">✅ {{ submitMessage() }}</div>
+          }
+          @if (submitStatus() === 'error') {
+            <div class="status-msg error">❌ {{ submitMessage() }}</div>
+          }
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</section>

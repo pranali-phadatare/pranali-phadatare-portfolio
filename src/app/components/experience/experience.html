@@ -1,0 +1,75 @@
+<section class="experience section">
+  <div class="container">
+
+    <div appScrollAnimation class="scroll-animate">
+      <div class="section-divider"></div>
+      <h2 class="section-title">Work <span>Experience</span></h2>
+      <p class="section-subtitle">My professional journey</p>
+    </div>
+
+    <!-- Timeline -->
+    <div class="timeline">
+      @for (exp of experiences; track exp.id; let i = $index; let last = $last) {
+        <div appScrollAnimation class="scroll-animate timeline-item"
+             [style.transition-delay]="(i * 0.15) + 's'">
+
+          <!-- Connector -->
+          <div class="connector">
+            <div class="dot" [class.current]="exp.isCurrent">
+              @if (exp.isCurrent) { <span class="pulse"></span> }
+            </div>
+            @if (!last) { <div class="line"></div> }
+          </div>
+
+          <!-- Content -->
+          <div class="exp-card card">
+            <div class="exp-header">
+              <div>
+                <h3 class="exp-role">{{ exp.role }}</h3>
+                <div class="exp-company">🏢 {{ exp.company }}</div>
+              </div>
+              <div class="exp-meta">
+                <span class="meta-item">📅 {{ exp.startDate }} – {{ exp.endDate }}</span>
+                <span class="meta-item">📍 {{ exp.location }}</span>
+                <span class="exp-badge" [class.current-badge]="exp.isCurrent">
+                  {{ exp.isCurrent ? '🟢 Current' : exp.type }}
+                </span>
+              </div>
+            </div>
+
+            <ul class="achievements">
+              @for (d of exp.description; track d) {
+                <li class="achievement"><span class="bullet">▸</span><span>{{ d }}</span></li>
+              }
+            </ul>
+
+            <div class="tech-row">
+              @for (tech of exp.technologies; track tech) {
+                <span class="tech-tag">{{ tech }}</span>
+              }
+            </div>
+          </div>
+
+        </div>
+      }
+    </div>
+
+    <!-- Education -->
+    <div appScrollAnimation class="scroll-animate edu-section">
+      <h3 class="edu-heading">🎓 Education</h3>
+      @for (edu of education; track edu.degree) {
+        <div class="edu-card card">
+          <div>
+            <h4 class="edu-degree">{{ edu.degree }}</h4>
+            <p class="edu-inst">{{ edu.institution }}</p>
+          </div>
+          <div class="edu-right">
+            <span class="edu-year">{{ edu.year }}</span>
+            <span class="edu-grade">{{ edu.grade }}</span>
+          </div>
+        </div>
+      }
+    </div>
+
+  </div>
+</section>

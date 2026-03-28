@@ -1,0 +1,70 @@
+<section class="about section">
+  <div class="container">
+
+    <!-- Section Header -->
+    <div appScrollAnimation class="scroll-animate">
+      <div class="section-divider"></div>
+      <h2 class="section-title">About <span>Me</span></h2>
+      <p class="section-subtitle">Get to know me better</p>
+    </div>
+
+    <div class="about-grid">
+      <!-- Profile Card -->
+      <div appScrollAnimation class="scroll-animate-left">
+        <div class="profile-card card">
+          <div class="avatar-wrap">
+            <div class="avatar">PP</div>
+            <div class="status-badge">
+              <span class="dot"></span> Available for work
+            </div>
+          </div>
+
+          <div class="facts-list">
+            @for (fact of facts; track fact.label) {
+              <div class="fact-row">
+                <span class="fact-label">{{ fact.label }}</span>
+                <span class="fact-value">{{ fact.value }}</span>
+              </div>
+            }
+          </div>
+
+          <a routerLink="/contact" class="btn btn-primary" style="justify-content: center; margin-top: 0.5rem;">
+            📬 Let's Connect
+          </a>
+        </div>
+      </div>
+
+      <!-- Story -->
+      <div appScrollAnimation class="scroll-animate-right about-story">
+        <h3 class="story-title">My Journey as a Frontend Developer</h3>
+
+        <p class="story-text">
+          Hi! I'm <strong>Pranali Phadatare</strong>, a passionate Frontend Developer
+          with <strong>4 years of experience</strong> building scalable Angular applications.
+          I love transforming complex requirements into clean, intuitive UIs.
+        </p>
+        <p class="story-text">
+          My expertise spans <strong>Angular</strong>, <strong>TypeScript</strong>,
+          <strong>RxJS</strong>, and component architecture. I thrive collaborating with
+          designers and backend teams to ship polished, production-ready products.
+        </p>
+        <p class="story-text">
+          Outside work, I explore new design trends, contribute to open source, and stay
+          up-to-date with the ever-evolving Angular ecosystem.
+        </p>
+
+        <!-- What I Do -->
+        <div class="highlights-grid">
+          @for (h of highlights; track h.title) {
+            <div class="highlight card">
+              <span class="h-icon">{{ h.icon }}</span>
+              <h4 class="h-title">{{ h.title }}</h4>
+              <p class="h-desc">{{ h.desc }}</p>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

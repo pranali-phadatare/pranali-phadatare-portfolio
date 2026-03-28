@@ -1,0 +1,10 @@
+# Netlify deployment configuration
+[build]
+  command = "npm run build"
+  publish = "dist/Pranali_Phadatare/browser"
+
+# SPA redirect: all routes → index.html (required for Angular Router)
+[[redirects]]
+  from   = "/*"
+  to     = "/index.html"
+  status = 200

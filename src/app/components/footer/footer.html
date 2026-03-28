@@ -1,0 +1,52 @@
+<footer class="footer">
+  <div class="container">
+
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div class="brand">
+        <div class="footer-logo">
+          <span class="lb">&lt;</span><span class="lt">PP</span><span class="lb">/&gt;</span>
+        </div>
+        <p class="tagline">
+          Frontend Developer crafting beautiful digital experiences with Angular.
+        </p>
+        <div class="social-links">
+          @for (s of socials; track s.label) {
+            <a [href]="s.href" target="_blank" rel="noopener noreferrer"
+               class="social-btn" [attr.aria-label]="s.label">{{ s.icon }}</a>
+          }
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="footer-heading">Quick Links</h4>
+        <nav class="footer-nav">
+          @for (link of navLinks; track link.route) {
+            <a [routerLink]="link.route" class="footer-link">{{ link.label }}</a>
+          }
+        </nav>
+      </div>
+
+      <!-- CTA -->
+      <div>
+        <h4 class="footer-heading">Open to Work</h4>
+        <p class="cta-text">
+          Looking for a dedicated Frontend Developer? Let's build something great together.
+        </p>
+        <a routerLink="/contact" class="btn btn-primary" style="font-size: 0.88rem;">
+          Hire Me 🚀
+        </a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="copyright">
+        © {{ year }} Pranali Phadatare · Built with ❤️ using
+        <span class="angular-tag">Angular 20</span>
+      </p>
+      <button class="back-top" (click)="scrollToTop()">↑ Back to Top</button>
+    </div>
+
+  </div>
+</footer>
