@@ -29,20 +29,16 @@ export class ContactService {
     const templateParams = {
       from_name:    data.name,
       from_email:   data.email,
+      reply_to:     data.email,
       subject:      data.subject,
       message:      data.message,
-      to_email:     'phadatarepranali116@gmail.com', // your email — recipient
+      to_email:     'phadatarepranali116@gmail.com',
     };
 
     return from(
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
     ).pipe(
       map(response => {
-        // response.status === 200 means delivered
-        // response.text contains the EmailJS message ID
-        console.log('Delivered to: phadatarepranali116@gmail.com');
-        console.log('EmailJS response:', response.status, response.text);
-
         return {
           success: true,
           message: 'Message sent successfully!',

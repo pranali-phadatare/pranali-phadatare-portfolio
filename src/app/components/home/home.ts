@@ -76,7 +76,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   downloadResume(): void {
     const link = document.createElement('a');
-    link.href = '/assets/resume.pdf';
+    link.href = '/assets/Pranali_Resume.pdf';
     link.download = 'Pranali_Phadatare_Resume.pdf';
     document.body.appendChild(link);
     link.click();
