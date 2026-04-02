@@ -32,7 +32,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   socialLinks = [
     { label: 'GitHub',   icon: '🐙', url: 'https://github.com/pranali-phadatare' },
     { label: 'LinkedIn', icon: '💼', url: 'https://www.linkedin.com/in/pranali-phadatare11' },
-    { label: 'Email',    icon: '📧', url: 'phadatarepranali116@gmail.com' },
+    { label: 'Email',    icon: '📧', url: 'mailto:phadatarepranali116@gmail.com' },
   ];
 
   stats = [

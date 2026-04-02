@@ -22,18 +22,18 @@ export class ProjectsComponent {
       description: 'An Angular-based task management app that helps users organize and manage daily tasks efficiently. Built with AI-assisted development using Claude Code as part of my learning journey into modern Angular development.',
       techStack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
       githubUrl: 'https://github.com/pranali-phadatare',
-      demoUrl: '#',
-      category: 'angular',
+      demoUrl: 'https://thinktask-1.netlify.app/',
+      category: ['angular', 'web'],
       featured: true,
     },
     {
-      id: 4,
+      id: 2,
       title: 'Portfolio Website',
       description: 'This portfolio! Built with Angular 20 featuring dark/light mode, typewriter effect, scroll animations, lazy-loaded routes, and fully responsive design.',
       techStack: ['Angular 20', 'TypeScript', 'CSS3', 'Angular Router'],
       githubUrl: 'https://github.com/pranali-phadatare/pranali-phadatare-portfolio',
       demoUrl: '#',
-      category: 'angular',
+      category: ['angular'],
       featured: false,
     },
   ];
@@ -41,7 +41,7 @@ export class ProjectsComponent {
   // computed() recalculates only when activeFilter signal changes
   filteredProjects = computed(() => {
     const f = this.activeFilter();
-    return f === 'all' ? this.projects : this.projects.filter(p => p.category === f);
+    return f === 'all' ? this.projects : this.projects.filter(p => p.category.includes(f as any));
   });
 
   setFilter(filter: string): void {

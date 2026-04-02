@@ -6,6 +6,6 @@ export interface Project {
   techStack: string[];
   githubUrl: string;
   demoUrl?: string;
-  category: 'angular' | 'web' | 'other';
+  category: ('angular' | 'web' | 'other')[];
   featured: boolean;
 }
