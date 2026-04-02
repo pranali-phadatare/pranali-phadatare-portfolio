@@ -17,6 +17,16 @@ export class ProjectsComponent {
 
   projects: Project[] = [
     {
+      id: 1,
+      title: 'TaskMind – Smart Task Manager',
+      description: 'An Angular-based task management app that helps users organize and manage daily tasks efficiently. Built with AI-assisted development using Claude Code as part of my learning journey into modern Angular development.',
+      techStack: ['Angular', 'TypeScript', 'HTML', 'CSS'],
+      githubUrl: 'https://github.com/pranali-phadatare',
+      demoUrl: '#',
+      category: 'angular',
+      featured: true,
+    },
+    {
       id: 4,
       title: 'Portfolio Website',
       description: 'This portfolio! Built with Angular 20 featuring dark/light mode, typewriter effect, scroll animations, lazy-loaded routes, and fully responsive design.',
