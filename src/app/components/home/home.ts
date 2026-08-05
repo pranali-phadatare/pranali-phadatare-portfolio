@@ -36,8 +36,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   ];
 
   stats = [
-    { value: '4',   label: 'Years Experience' },
-    { value: '2+',  label: 'Projects Built' },
+    { value: '2+',   label: 'Years Experience' },
+    { value: '3+',  label: 'Projects Built' },
     { value: '10+',  label: 'Technologies' },
     { value: '100%', label: 'Passion' },
   ];

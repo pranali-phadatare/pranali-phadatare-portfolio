@@ -48,7 +48,7 @@ export class NavbarComponent {
 
   downloadResume(): void {
     const link = document.createElement('a');
-    link.href = '/assets/Pranali_Resume.pdf';
+    link.href = '/assets/Pranali_Phadatare_Resume.pdf';
     link.download = 'Pranali_Phadatare_Resume.pdf';
     document.body.appendChild(link);
     link.click();

@@ -36,6 +36,16 @@ export class ProjectsComponent {
       category: ['angular'],
       featured: false,
     },
+    {
+      id: 3,
+      title: 'E-Commerce SPA',
+      description: 'A responsive e-commerce single-page app built with Angular 19 using standalone components and Signals-based state management, eliminating the need for NgRx. Features a cart management system with localStorage persistence, real-time totals, and quantity controls powered by computed signals, plus a reusable Angular Material UI with a router-synced tabbed interface and a global toast notification service. Includes typed reactive forms with custom validation (email, phone regex) and unit test coverage across components and services.',
+      techStack: ['Angular 19', 'TypeScript', 'Signals', 'Angular Material', 'Reactive Forms'],
+      githubUrl: 'https://github.com/pranali-phadatare/E-Commerce19',
+      demoUrl: '#',
+      category: ['angular', 'web'],
+      featured: false,
+    },
   ];
 
   // computed() recalculates only when activeFilter signal changes
